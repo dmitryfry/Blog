@@ -1,6 +1,6 @@
 <h1>Оставьте email и свое сообщение</h1>
 
-<%= form_for :message do |f| %>
+<%= form_for :contact, url: contacts_path do |f| %>
 
   <p>
     <%= f.text_field :email %>
