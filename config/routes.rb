@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
 
-resources :articles
+resources :articles do
+  resources :comments, only: [:create]
+end
+
 resource :contacts, only: [:new, :create], path_names: {:new => ''}
 
 get 'terms' => 'pages#terms'
