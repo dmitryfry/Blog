@@ -3,7 +3,16 @@
   <p>
     <%= @article.text %>
   </p>
+<h3> Комментарии </h3>
+<% @article.comments.each do |comment| %>
 
+<h4>
+  <%= comment.author %>
+</h4>
+<p>
+  <%= comment.body %>
+<hr>
+<% end %>
 <p>
  <%= form_for ([@article, @article.comments.build]) do |f| %>
 </p>
@@ -21,14 +30,4 @@
 
 </p>
 
-<% end %>
-<h3> Комментарии </h3>
-<% @article.comments.each do |comment| %>
-
-<h4>
-  <%= comment.author %>
-</h4>
-<p>
-  <%= comment.body %>
-<hr>
 <% end %>
