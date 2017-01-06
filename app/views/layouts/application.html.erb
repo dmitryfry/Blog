@@ -11,7 +11,7 @@
   <body>
 
 <% if user_signed_in? %>
-      <p> Hello, <%= current_user.email %> </p>
+      <p> Hello, <%= current_user.username %> </p>
       <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
       <% else %>
       <%= link_to 'sign in', new_user_session_path %>
