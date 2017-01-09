@@ -16,6 +16,7 @@ before_filter :authenticate_user!, :only => [:new, :create]
   def create
     @article = Article.new(article_params)
     if @article.valid?
+      @article.author = current_user.username
        @article.save
        redirect_to @article
     else
@@ -25,7 +26,12 @@ before_filter :authenticate_user!, :only => [:new, :create]
   end
 
   def edit
-    @article = Article.find(params[:id])
+      @article = Article.find(params[:id])
+    if current_user.username == @article.author
+
+    else
+      redirect_to articles_path
+    end
   end
 
   def update
@@ -39,9 +45,12 @@ before_filter :authenticate_user!, :only => [:new, :create]
 
   def destroy
         @article = Article.find(params[:id])
-        @article.destroy
-
-        redirect_to articles_path
+        if current_user.username == @article.author
+          @article.destroy
+          redirect_to articles_path
+        else
+          redirect_to articles_path
+        end
   end
 
   private
