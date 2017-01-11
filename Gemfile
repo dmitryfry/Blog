@@ -50,7 +50,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 group :test, :development do
-  gem "rspec-rails","~> 2.4"
+  gem 'rspec-rails','~> 2.4'
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails', '~> 4.0'
 end
