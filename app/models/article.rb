@@ -6,4 +6,7 @@ class Article < ApplicationRecord
   def subject
     title
   end
+  def comment_last
+    comments.last
+  end
 end
