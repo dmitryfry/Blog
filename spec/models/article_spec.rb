@@ -15,4 +15,11 @@ describe Article do
       expect(article.subject).to eq 'Lorem Ipsum'
     end
   end
+  describe "#last_comment" do
+    it "return the last comment" do
+      article = create(:articles_with_comments)
+
+# last_comment Rake 11.0.1 removes the last_comment      expect(article.last_comment.body).to eq "comment body 3"
+    end
+  end
 end
